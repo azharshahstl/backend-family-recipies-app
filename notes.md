@@ -6,7 +6,9 @@ User
 
 Recipe
     belongs_to: user 
+    user_id: integer
     ingredients: string 
     directions: string 
     cuisine: string 
-    
+
+ 
