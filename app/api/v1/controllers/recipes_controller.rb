@@ -1,18 +1,30 @@
 class Api::V1::RecipesController < ApplicationController
 
-    def index 
+    def index
+        recipes = Recipe.all 
+        render json: recipes
     end 
 
     def show 
+        recipe = Recipe.find_by(id: params[:id])
     end 
 
-    def new 
+    def create
+        user = User.find_by(id: params[:user_id])
+        recipe = user.recipes.(recipe_params)
+        if recipe.save
+            render json: recipe
+        else 
+            render json: {error: 'Not all fields were completed.'}
+
     end 
 
     def update 
     end
 
     def destroy 
+        recipe = Recipe.find_by(id: params[:id])
+        recipe.destroy
     end 
 
     private 
