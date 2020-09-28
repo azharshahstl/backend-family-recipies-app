@@ -8,3 +8,5 @@ Recipe
     belongs_to: user 
     ingredients: string 
     directions: string 
+    cuisine: string 
+    
