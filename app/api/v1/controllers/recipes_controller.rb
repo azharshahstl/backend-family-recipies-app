@@ -10,13 +10,12 @@ class Api::V1::RecipesController < ApplicationController
     end 
 
     def create
-        user = User.find_by(id: params[:user_id])
+        user = User.find_by(user_id: params[:user_id])
         recipe = user.recipes.(recipe_params)
         if recipe.save
             render json: recipe
         else 
             render json: {error: 'Not all fields were completed.'}
-
     end 
 
     def update 
