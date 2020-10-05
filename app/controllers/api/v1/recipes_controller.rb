@@ -16,6 +16,7 @@ class Api::V1::RecipesController < ApplicationController
             render json: recipe
         else 
             render json: {error: 'Not all fields were completed.'}
+        end
     end 
 
     def update 
