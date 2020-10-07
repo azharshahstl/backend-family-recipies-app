@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :recipes
       resources :users
       resources :cuisines
+      post '/login' to, 'auth#create'
     end 
   end
 end

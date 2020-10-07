@@ -10,6 +10,7 @@ class Api::V1::RecipesController < ApplicationController
     end 
 
     def create
+        # binding.pry
         user = User.find_by(user_id: params[:user_id])
         recipe = user.recipes.(recipe_params)
         if recipe.save
