@@ -6,12 +6,12 @@ class Api::V1::RecipesController < ApplicationController
     end 
 
     def show 
-        recipe = Recipe.find_by(id: params[:id])
+        recipe = Recipe.find(params[:id])
     end 
 
     def create
         # binding.pry
-        user = User.find_by(user_id: params[:user_id])
+        user = User.find(params[:user_id])
         recipe = user.recipes.(recipe_params)
         if recipe.save
             render json: recipe
@@ -24,7 +24,7 @@ class Api::V1::RecipesController < ApplicationController
     end
 
     def destroy 
-        recipe = Recipe.find_by(id: params[:id])
+        recipe = Recipe.find(params[:id])
         recipe.destroy
     end 
 
