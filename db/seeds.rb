@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(name: 'Azhar', email: 'a@a.com', password: '123')
-user2 = User.create(name: 'Kyra', email: 'k@a.com', password: '123')
-user3 = User.create(name: 'Arif', email: 'aa@a.com', password: '123')
+user1 = User.create(name: 'Azhar', email: 'a@a.com', password: '123', isLoggedIn: false)
+user2 = User.create(name: 'Kyra', email: 'k@a.com', password: '123', isLoggedIn: false)
+user3 = User.create(name: 'Arif', email: 'aa@a.com', password: '123', isLoggedIn: false)
 
 recipe1 = Recipe.create(user_id: 1, name: "Chicken and Cumin", ingredients: "chicken, cumin, salt", directions: "Fry chicken in oil, then add salt and cumin", cuisine: 'Italian')
 recipe2 = Recipe.create(user_id: 1, name: 'Lamb and cumin', ingredients: "lamb, cumin, salt", directions: "Fry lamb in oil, then add salt and cumin", cuisine: 'Pakistani')
