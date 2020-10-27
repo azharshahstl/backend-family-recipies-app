@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
         if user.valid? 
             user.save
             token = encode_token(user_id: user.id)
-            render json: { user: user, jwt: token }, status: :created 
+            render json:  {user: user, jwt: token} , status: :created 
         else 
             render json: {error: 'Either that email is taken or you did not fill in a name or password'}
         end

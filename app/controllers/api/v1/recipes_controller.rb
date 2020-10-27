@@ -1,8 +1,9 @@
 class Api::V1::RecipesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :index, :show, :update]
+    skip_before_action :authorized, only: [:create, :index, :show, :update, :destroy]
 
     def index
-        recipes = Recipe.all 
+        user = User.find(params[:user_id])
+        recipes = user.recipes
         render json: recipes
     end 
 
@@ -11,7 +12,7 @@ class Api::V1::RecipesController < ApplicationController
     end 
 
     def create
-        binding.pry
+        # binding.pry
         user = User.find(params[:user_id])
         recipe = user.recipes.new(recipe_params)
         if recipe.save
@@ -27,6 +28,7 @@ class Api::V1::RecipesController < ApplicationController
     def destroy 
         recipe = Recipe.find(params[:id])
         recipe.destroy
+        render json: recipe
     end 
 
     private 
