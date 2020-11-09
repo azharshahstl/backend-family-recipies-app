@@ -24,7 +24,6 @@ class Api::V1::UsersController < ApplicationController
     end 
 
     def update 
-        binding.pry
         user = User.find(params[:id])
         user.update(isLoggedIn: params["user"]["isLoggedIn"])
         user.save
